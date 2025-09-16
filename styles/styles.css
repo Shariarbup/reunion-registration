@@ -1,0 +1,13 @@
+body{ font-family: Arial, Helvetica, sans-serif; background:#f7f7f7; color:#222; }
+.container{ max-width:900px; margin:30px auto; background:#fff; padding:20px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.header{ display:flex; justify-content:space-between; align-items:center; }
+.form-row{ margin-bottom:12px; }
+label{ display:block; margin-bottom:6px; }
+input[type=text], input[type=email], input[type=password], select{ width:100%; padding:8px; box-sizing:border-box; }
+button{ padding:10px 16px; border:none; background:#0b79d0; color:#fff; cursor:pointer; }
+.nav{ margin-top:14px; }
+.nav a{ margin-right:10px; }
+.success{ background:#e6ffed; padding:10px; border:1px solid #b7f0c8; }
+.error{ background:#ffe6e6; padding:10px; border:1px solid #f0b7b7; }
+.table{ width:100%; border-collapse:collapse; }
+.table th, .table td{ padding:8px; border:1px solid #ddd; }
