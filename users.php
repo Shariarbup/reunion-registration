@@ -97,7 +97,7 @@ $users = $stmt->fetchAll();
         </div>
 
 
-        <!-- Batch Filter -->
+        <!-- Batch + Phone Filter -->
         <form method="get" class="mb-3 d-flex">
             <select name="batch" class="form-select w-auto me-2">
                 <option value="">All Batches</option>
@@ -109,8 +109,12 @@ $users = $stmt->fetchAll();
             <input type="text" name="phone" value="<?= e($_GET['phone'] ?? '') ?>" class="form-control w-auto me-2"
                 placeholder="Search by Phone">
 
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit" class="btn btn-primary me-2">Filter</button>
+
+            <!-- Clear filter button -->
+            <a href="users.php" class="btn btn-secondary">Clear</a>
         </form>
+
         <?php if ($isSuperAdmin): ?>
             <a href="download_excel.php?batch=<?= e($batch_filter) ?>" class="btn btn-success mb-3">
                 <i class="fa-solid fa-file-excel"></i> Download Excel
