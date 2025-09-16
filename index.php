@@ -188,7 +188,7 @@ $f = flash_get();
 
     <!-- Footer -->
     <footer>
-      &copy; 2025 Bogra Cantonment Board High School. All rights reserved.
+      &copy; 2025 Bogra Cantonment Board High School. All rights reserved. Dveloped By- <a target="_blank" href="https://shariarbup.github.io/al-shariar/">SHARIAR</a>
     </footer>
 
   </div>
