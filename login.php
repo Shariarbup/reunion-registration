@@ -125,9 +125,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" id="password" name="password" class="form-control" required
-            placeholder="Enter your password">
+          <div class="input-group">
+            <input type="password" id="password" name="password" class="form-control" required
+              placeholder="Enter your password">
+            <span class="input-group-text" id="togglePassword" style="cursor:pointer;">
+              <i class="fa-solid fa-eye"></i>
+            </span>
+          </div>
         </div>
+
+
         <button type="submit" class="btn btn-primary"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
       </form>
 
@@ -140,6 +147,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const password = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword").querySelector("i");
+
+    document.getElementById("togglePassword").addEventListener("click", () => {
+      const type = password.getAttribute("type") === "password" ? "text" : "password";
+      password.setAttribute("type", type);
+
+      // Toggle the eye / eye-slash
+      togglePassword.classList.toggle("fa-eye");
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+  </script>
+
+
 </body>
 
 </html>

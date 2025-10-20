@@ -52,6 +52,17 @@ $sql .= " ORDER BY u.id DESC LIMIT $limit OFFSET $offset";
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $users = $stmt->fetchAll();
+
+// Total registered users
+$stmt = $pdo->query("SELECT COUNT(*) FROM users");
+$overall_total_registrations = $stmt->fetchColumn();
+
+// Total successful payments
+$stmt = $pdo->query("SELECT COUNT(*) 
+                     FROM payments 
+                     WHERE status = 'success'");
+$overall_total_paid = $stmt->fetchColumn();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -114,6 +125,11 @@ $users = $stmt->fetchAll();
             <!-- Clear filter button -->
             <a href="users.php" class="btn btn-secondary">Clear</a>
         </form>
+        <!-- Overall Summary Section -->
+        <div class="mb-3">
+            <span class="badge bg-dark">Overall Registrations: <?= e($overall_total_registrations) ?></span>
+            <span class="badge bg-success">Overall Successful Payments: <?= e($overall_total_paid) ?></span>
+        </div>
 
         <?php if ($isSuperAdmin): ?>
             <a href="download_excel.php?batch=<?= e($batch_filter) ?>" class="btn btn-success mb-3">
